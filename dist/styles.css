@@ -1,0 +1,271 @@
+:root {
+    --bck: rgb(95, 92, 92);
+    --read: rgb(71, 192, 152);
+    --notRead: rgb(202, 42, 56);
+    --dark-grey: rgb(48, 44, 39);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    background-color: var(--dark-grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    background-color: var(--dark-grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: antiquewhite;
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+.addBookButton {
+    width: 60px;
+    transition: 0.5s;
+}
+
+.addBookButton:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    filter: invert(98%) sepia(4%) saturate(1997%) hue-rotate(317deg) brightness(97%) contrast(101%);
+}
+
+.container {
+    position: relative;
+    padding: 1rem;
+    width: calc(900px + 4rem);
+    min-height: calc(100vh - 100px - 1rem);
+    max-width: 1200px;
+    height: fit-content;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
+    align-content: flex-start;
+    background-image: url(backgr.jpg);
+    border-radius: 20px;
+    box-shadow: 0px 0px 25px black;
+}
+
+/* .container::before {
+    background-size: cover;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);
+    z-index: 0;
+} */
+
+
+
+.card-container {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    border: 1px solid;
+    width: 300px;
+    height: 175px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow-y: hidden;
+    border-radius: 10px;
+}
+
+.true {
+    background-color: var(--read);
+}
+
+.false {
+    background-color: var(--notRead);
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+    max-width: 90%;
+}
+
+.author {
+    
+}
+
+.modal {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 350px;
+    height: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-grey);
+    color: bisque;
+    border-radius: 15px;
+    z-index: 1;
+    display: none;
+    backdrop-filter: blur(3px);
+    box-shadow: 0px 0px 18px whitesmoke;
+    border: none;
+}
+
+.modal::backdrop {
+    backdrop-filter: blur(3px);
+}
+
+.form-main {
+    width: 80%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    border: none;
+}
+
+input {
+    width: 85%;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+.errormessage-title {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: red;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+}
+
+.modal button {
+    padding: 8px;
+    width: 140px;
+    border-radius: 20px;
+}
+
+.close-modal-button {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 25px;
+}
+
+.close-modal-button:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-card-button {
+    position: absolute;
+    top:1rem;
+    right: 1rem;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.delete-card-button:hover {
+    color: rgb(248, 248, 248);
+    cursor: pointer;
+}
+
+.add-book-button {
+    border: none;
+    font-weight: bold;
+    background-color:bisque;
+}
+
+/* ########### */
+/*   Toggle   */
+/* ########## */
+
+.toggle-cont {
+    background-color: antiquewhite;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    bottom: 10px;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translate(-65%);
+    border-radius: 20px;
+}
+
+.switch {
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+    width: 46px;
+    height: 20px;
+}
+
+.checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle {
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.toggle::before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 0px;
+    bottom: 0px;
+    background-color: black;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+
+.checkbox:checked + .toggle:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+#read {
+
+    width: 20px;
+    height: 30px;
+    display: block;
+   margin-top:5px
+}

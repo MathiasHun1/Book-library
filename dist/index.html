@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <span><h1>Add Book to Library</h1></span>
+        <img class="addBookButton" src="./plus.svg" alt="">
+    </header>
+    <div class="container">
+
+    </div>
+    <dialog class="modal">
+        <div class="form-header">
+            <h2>Add a book</h2>
+            <span class="close-modal-button">X</span>
+        </div>
+        <form class="form-main">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" maxlength="30" required>
+            <p class="errormessage-title"> </p>
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" maxlength="30" required>
+            <label for="read">Did you read it?</label>
+            <input type="checkbox" id="read" name="read">
+        </form>
+        <input class="add-book-button" type="submit" value="ADD">
+    </dialog>
+    <script src="bundle.js"></script>
+</body>
+</html>
